@@ -27,16 +27,39 @@ class Movie {
     }
 
     public function getDetails() {
-        return [$this->title, $this->year, $this->country, $this->direct_by, $this->distribution_home];
+        // return [$this->title, $this->year, $this->country, $this->direct_by, $this->distribution_home];
+        return `<div class="movie">
+                    <h2>{$this->title}</h2>
+                    <h3>{$this->original_title}</h3>
+                    <ul>
+                        <li>{$this->year}</li>
+                        <li>{$this->country}</li>
+                        <li>{$this->direct_by}</li>
+                    </ul>
+                </div>`;
     }
 }
 
 $pulp_fiction = new Movie ('Pulp Fiction', '1994', 'USA', 'Quentin Tarantino', 'Miramax');
 $pulp_fiction->setDetails('Pulp Fiction', ['John Travolta', 'Uma Turman', 'Samuel L. Jackson', 'Bruce Willis'], ['noir', 'thriller', 'drama'], 'aa.vv.');
-var_dump($pulp_fiction);
+// var_dump($pulp_fiction);
 
 $prova_prendermi = new Movie ('Prova a prendermi', '2002', 'USA', 'S. Spielberg', 'United International');
 $prova_prendermi->setDetails('Catch me if you can', ['Leonardo di Caprio', 'Tom Hanks', 'Christopher Walken'], ['commedia', 'drama'], 'John Williams');
-var_dump($prova_prendermi);
+// var_dump($prova_prendermi);
+?>
 
-// echo $pulp_fiction->getDetails();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Class</title>
+</head>
+<body>
+    <main>
+        <?php echo $prova_prendermi->getDetails(); ?>
+    </main>
+</body>
+</html>
